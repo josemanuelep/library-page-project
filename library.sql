@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2020 at 03:07 AM
+-- Generation Time: Apr 25, 2020 at 03:26 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -35,14 +35,6 @@ CREATE TABLE `book` (
   `borrowed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
---
--- Dumping data for table `book`
---
-
-INSERT INTO `book` (`id`, `name`, `type`, `isbn`, `borrowed`) VALUES
-(1, 'El coronel no tiene quien le escriba', 'Historia', '131345811315', 1),
-(3, '	The Hunger Games (The Hunger Games, #1)', 'Historia', '1314545415', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -56,13 +48,6 @@ CREATE TABLE `lends` (
   `init_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
---
--- Dumping data for table `lends`
---
-
-INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`) VALUES
-(1, 1, 1, '2020-04-24');
-
 -- --------------------------------------------------------
 
 --
@@ -75,13 +60,6 @@ CREATE TABLE `users` (
   `last_name` varchar(45) COLLATE latin1_spanish_ci DEFAULT NULL,
   `doc` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `last_name`, `doc`) VALUES
-(1, 'Jose Manuel', 'Echeverri Palacio', 1022036395);
 
 --
 -- Indexes for dumped tables
@@ -117,19 +95,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `lends`
 --
 ALTER TABLE `lends`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
