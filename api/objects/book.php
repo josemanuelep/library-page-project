@@ -44,7 +44,7 @@ class Book {
     }
 
     public function readOne() {
-        return  $this->conn->query( 'SELECT * FROM book WHERE id = ?', array( $this->id ) );
+        return  $this->conn->query( 'SELECT book.name AS book_name,book.borrowed AS isBorrwed,book.type AS book_type,book.isbn, users.name AS name_user, lends.init_date FROM book INNER JOIN lends ON book.id = lends.id_book INNER JOIN users ON users.id = lends.id_user WHERE book.id = ?', array( $this->id ) );
     }
     public function delete() {
         return  $this->conn->query( 'DELETE FROM book WHERE id = ?', array( $this->id ) );

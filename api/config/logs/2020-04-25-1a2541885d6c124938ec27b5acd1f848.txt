@@ -1,0 +1,29 @@
+Time : 02:20:09
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:20:09
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:20:09
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:20:09
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:20:08
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:20:07
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:18:50
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:18:23
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:12:42
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
+
+Time : 02:12:25
+SQLSTATE[HY000] [1045] Access denied for user 'dev'@'localhost' (using password: NO)
