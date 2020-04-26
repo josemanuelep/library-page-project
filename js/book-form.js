@@ -3,6 +3,16 @@ import {getUrlParameter} from './util/url-params.js';
 $(document).ready(function () {
     console.log('Book detail js loaded!');
     getBook();
+    $("#delete_book").click(function (e) { 
+        e.preventDefault();
+        bootbox.confirm("¿Desea eliminar el libro?", function(result){ 
+           if(result){
+               deleteBook();
+               window.location.href = "http://127.0.0.1/library-page-project/#";
+           }
+        });
+        
+    });
 });
 
 var book = [];
@@ -27,8 +37,21 @@ function getBook() {
 
         }
     });
+}
 
-
+function deleteBook(){
+    var id= {
+        "id":getUrlParameter('id')
+    }
+    $.ajax({
+        type: "POST",
+        url: "api/books/delete.php",
+        data: JSON.stringify(id),
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response);
+        }
+    });
 }
 
 

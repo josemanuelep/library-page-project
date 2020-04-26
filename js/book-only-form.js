@@ -28,6 +28,12 @@ function saveBook() {
             $('#book_name').val('');
             $('#book_type').val('');
             $('#book_isbn').val('');
+            bootbox.alert({
+                message: "El libro "+postData.name+" ha sido guardado",
+                callback: function () {
+                    console.log('This was logged in the callback!');
+                }
+            })
 
         }
     });
