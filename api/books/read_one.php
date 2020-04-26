@@ -21,7 +21,7 @@ $book = new Book( $db );
 $book->id = isset( $_GET['id'] ) ? $_GET['id'] : die();
 $response = $book->readOne();
 
-if ( $response[0] != null ) {
+if ( $response != null ) {
 
     // set response code - 200 OK
     http_response_code( 200 );

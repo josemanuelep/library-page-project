@@ -55,19 +55,19 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4">Biblioteca</h1>
     
 
       </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
-
-      
         <div id="books_container" class="row mt-5">
           <form>
+            <hr>
+          <h4>Datos del libro</h4>
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-12">
                 <label for="inputEmail4">Nombre libro</label>
                 <input type="text" class="form-control" id="book_name">
               </div>
@@ -76,29 +76,44 @@
                 <input type="text" class="form-control" id="book_type">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-row">
+            <div class="form-group col-md-6">
               <label for="inputAddress">ISBN</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              <input type="text" class="form-control" id="book_isbn">
             </div>
+            <div class="form-group col-md-6">
+              <label for="inputState">Prestado?</label>
+              <select id="inputState" class="form-control">
+                <option >Seleccione...</option>
+                <option value="true" >Si</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+          </div>
+          <hr>
+          <h4>Datos de quien lo tiene prestado</h4>
             <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              <label for="inputAddress2">Nombre:</label>
+              <input type="text" class="form-control" id="user_name" readonly >
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <label for="inputCity" >Apellido:</label>
+                <input type="text" class="form-control" id="user_last" readonly>
               </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
+              <div class="form-group col-md-6">
+                <label for="inputZip">Documento:</label>
+                <input type="text" class="form-control" id="user_doc"  readonly>
               </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Fecha de prestamo:</label>
+                <input type="text" class="form-control" id="book_initial_date" readonly>
+              </div>
+              <div class="form-group col-md-6">
+                <label class="text-danger" for="inputZip">Fecha de entrega:</label>
+                <input type="text" class="form-control" id="book_end_date" readonly>
               </div>
             </div>
             <div class="form-group">
@@ -109,7 +124,7 @@
                 </label>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary mb-5">Guardar</button>
           </form>
       
         </div>
@@ -137,7 +152,7 @@
   
 
   <!-- Page js -->
-  <script src="js/book-form.js"></script>
+  <script type="module" src="js/book-form.js"></script>
 
 </body>
 

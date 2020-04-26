@@ -1,0 +1,15 @@
+Time : 01:21:27
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user.doc' in 'field list'
+Raw SQL : SELECT book.name AS book_name,book.borrowed AS isBorrwed,book.type AS book_type, book.isbn , users.name AS name_user, users.last_name, user.doc, lends.init_date, lends.end_date FROM book INNER JOIN lends ON book.id = lends.id_book INNER JOIN users ON users.id = lends.id_user WHERE book.id = ?
+
+Time : 01:21:07
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user.last_name' in 'field list'
+Raw SQL : SELECT book.name AS book_name,book.borrowed AS isBorrwed,book.type AS book_type, book.isbn , users.name AS name_user, user.last_name, user.doc, lends.init_date, lends.end_date FROM book INNER JOIN lends ON book.id = lends.id_book INNER JOIN users ON users.id = lends.id_user WHERE book.id = ?
+
+Time : 01:20:04
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user.last_name' in 'field list'
+Raw SQL : SELECT book.name AS book_name,book.borrowed AS isBorrwed,book.type AS book_type,book.isbn, users.name AS name_user, user.last_name, user.doc, lends.init_date, lends.end_date FROM book INNER JOIN lends ON book.id = lends.id_book INNER JOIN users ON users.id = lends.id_user WHERE book.id = ?
+
+Time : 01:19:54
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user.last_name' in 'field list'
+Raw SQL : SELECT book.name AS book_name,book.borrowed AS isBorrwed,book.type AS book_type,book.isbn, users.name AS name_user, user.last_name, user.doc, lends.init_date, lends.end_date FROM book INNER JOIN lends ON book.id = lends.id_book INNER JOIN users ON users.id = lends.id_user WHERE book.id = ?
