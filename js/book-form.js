@@ -3,9 +3,6 @@ import {getUrlParameter} from './util/url-params.js';
 $(document).ready(function () {
     console.log('Book detail js loaded!');
     getBook();
-
-   
-
 });
 
 var book = [];

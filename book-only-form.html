@@ -20,12 +20,11 @@
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -56,19 +55,35 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4"><i class="fas fa-book pr-3"></i>Biblioteca</h1>
-        <a href="book-only-form.html" class="list-group-item"><i class="fas fa-book-open pr-2"></i>Formulario libros</a>
-        <a href="#" class="list-group-item"><i class="fas fa-book-reader pr-2"></i>Formulario usuarios</a>
-        <a href="#" class="list-group-item"><i class="fas fa-lock-open pr-2"></i>formularios prestamos</a>
+        <h1 class="my-4">Biblioteca</h1>
+    
 
       </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
-
-
         <div id="books_container" class="row mt-5">
-
+          <form>
+            <hr>
+          <h4>Datos del libro</h4>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="inputEmail4">Nombre libro</label>
+                <input required type="text" class="form-control" id="book_name">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Tipo libro</label>
+                <input required type="text" class="form-control" id="book_type">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAddress">ISBN</label>
+                <input required type="number" class="form-control" id="book_isbn">
+              </div>
+            </div>
+          <hr>
+            <button id="btn_save" type="submit" class="btn btn-primary mb-5">Guardar</button>
+          </form>
+      
         </div>
         <!-- /.row -->
       </div>
@@ -92,9 +107,10 @@
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
   
+
   <!-- Page js -->
-  <script src="js/books.js"></script>
-  <script src="https://kit.fontawesome.com/21960d9807.js" crossorigin="anonymous"></script>
+  <script type="module" src="js/book-only-form.js"></script>
+
 </body>
 
 </html>
