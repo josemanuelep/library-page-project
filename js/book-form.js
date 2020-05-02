@@ -13,6 +13,16 @@ $(document).ready(function () {
         });
         
     });
+    $("#update_book").click(function (e) { 
+        e.preventDefault();
+        bootbox.confirm("¿Desea actualizar el libro?", function(result){ 
+           if(result){
+               updateBook();
+              
+           }
+        });
+        
+    });
 });
 
 var book = [];
@@ -55,16 +65,24 @@ function deleteBook(){
 }
 
 function updateBook(){
-    var id= {
-        "id":getUrlParameter('id')
+    var book= {
+        "id":getUrlParameter('id'),
+        "name": $('#book_name').val(),
+        "type": $('#book_type').val(),
+        "isbn": $('#book_isbn').val()
+
     }
     $.ajax({
         type: "POST",
-        url: "api/books/delete.php",
-        data: JSON.stringify(id),
+        url: "api/books/update.php",
+        data: JSON.stringify(book),
         dataType: "JSON",
         success: function (response) {
-            console.log(response);
+            if (response.message == "Book was updated.") {
+                bootbox.alert("Se ha actualizado el libro!");
+            } else {
+                bootbox.alert("No se  ha actualizado el libro!, intente de nuevo");
+            }
         }
     });
 }
