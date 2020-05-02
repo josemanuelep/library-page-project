@@ -29,7 +29,7 @@ class Lend {
 
     public function create() {
         $AffectedRows = $this->conn->query( 'INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`)  VALUES(:id,:id_user,:id_book,:init_date,:end_date)',
-        array( 'id_user'=>$this->id_user, 'id_book'=>$this->isbn, 'id'=>null, 'init_date'=>$this->init_date,'end_date'=>$this->end_date));
+        array( 'id_user'=>$this->id_user, 'id_book'=>$this->id_book, 'id'=>null, 'init_date'=>$this->init_date,'end_date'=>$this->end_date));
         if ( $AffectedRows>0 ) {
             return true;
         } else {

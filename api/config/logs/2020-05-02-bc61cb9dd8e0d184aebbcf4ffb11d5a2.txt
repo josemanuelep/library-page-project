@@ -1,0 +1,23 @@
+Time : 04:53:14
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`library`.`lends`, CONSTRAINT `lends_ibfk_2` FOREIGN KEY (`id_book`) REFERENCES `book` (`id`))
+Raw SQL : INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`)  VALUES(:id,:id_user,:id_book,:init_date,:end_date)
+
+Time : 04:52:22
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'end_date' cannot be null
+Raw SQL : INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`)  VALUES(:id,:id_user,:id_book,:init_date,:end_date)
+
+Time : 04:51:13
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'end_date' cannot be null
+Raw SQL : INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`)  VALUES(:id,:id_user,:id_book,:init_date,:end_date)
+
+Time : 04:50:46
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_book' cannot be null
+Raw SQL : INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`)  VALUES(:id,:id_user,:id_book,:init_date,:end_date)
+
+Time : 04:50:20
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_user' cannot be null
+Raw SQL : INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`)  VALUES(:id,:id_user,:id_book,:init_date,:end_date)
+
+Time : 04:49:57
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_user' cannot be null
+Raw SQL : INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`)  VALUES(:id,:id_user,:id_book,:init_date,:end_date)
