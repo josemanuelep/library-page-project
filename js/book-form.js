@@ -54,4 +54,19 @@ function deleteBook(){
     });
 }
 
+function updateBook(){
+    var id= {
+        "id":getUrlParameter('id')
+    }
+    $.ajax({
+        type: "POST",
+        url: "api/books/delete.php",
+        data: JSON.stringify(id),
+        dataType: "JSON",
+        success: function (response) {
+            console.log(response);
+        }
+    });
+}
+
 
