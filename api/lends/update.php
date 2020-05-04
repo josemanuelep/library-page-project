@@ -20,10 +20,10 @@ $data = json_decode( file_get_contents( 'php://input' ) );
 // initialize object
 $lend = new lend( $db );
 $lend->id = $data->id;
-$lend->name = $id_user->id_user;
-$lend->type = $id_book->id_book;
-$lend->isbn = $init_date->init_date;
-$lend->isbn = $end_date->end_date;
+$lend->id_user = $data->id_user;
+$lend->id_book = $data->id_book;
+$lend->init_date = $data->init_date;
+$lend->end_date = $data->end_date;
 
 // update the product
 if ( $lend->update() ) {
