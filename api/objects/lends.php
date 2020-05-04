@@ -24,7 +24,7 @@ class Lend {
     }
 
     public function readAll() {
-        return  $this->conn->query( 'SELECT book.name as book_name, book.type AS book_type, users.name AS user_name, users.last_name, lends.init_date, lends.end_date FROM `lends` INNER JOIN book ON lends.id_book = book.id INNER JOIN users ON users.id = lends.id' );
+        return  $this->conn->query( 'SELECT book.name as book_name, book.type AS book_type, users.name AS user_name, users.last_name, lends.init_date, lends.end_date FROM `lends` INNER JOIN book ON lends.id_book = book.id INNER JOIN users ON users.id = lends.id_user' );
     }
 
     public function create() {
@@ -48,7 +48,7 @@ class Lend {
     }
 
     public function readOne() {
-        return  $this->conn->query( 'SELECT book.name as book_name, book.type AS book_type, users.name AS user_name, users.last_name, lends.init_date, lends.end_date FROM `lends` INNER JOIN book ON lends.id_book = book.id INNER JOIN users ON users.id = lends.id WHERE lends.id= 4', array( 3 ) );
+        return  $this->conn->query( 'SELECT book.name as book_name, book.type AS book_type, users.name AS user_name, users.last_name, lends.init_date, lends.end_date FROM `lends` INNER JOIN book ON lends.id_book = book.id INNER JOIN users ON users.id = lends.id_user WHERE lends.id= 7', array( 3 ) );
     }
 
     public function delete() {
