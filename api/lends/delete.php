@@ -29,7 +29,7 @@ if ( $lend->delete() ) {
     http_response_code( 200 );
 
     // tell the user
-    echo json_encode( array( 'message' => 'Book was deleted.' ) );
+    echo json_encode( array( 'message' => 'Lend was deleted.' ) );
 }
 
 // if unable to create the product, tell the user
@@ -39,5 +39,5 @@ else {
     http_response_code( 503 );
 
     // tell the user
-    echo json_encode( array( 'message' => 'Unable to delete Book.' ) );
+    echo json_encode( array( 'message' => 'Unable to delete lend.' ) );
 }

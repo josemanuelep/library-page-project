@@ -16,12 +16,10 @@ $db = $database->getConnection();
 
 // prepare book object
 $lend = new lend( $db );
-$lend->id = $data->id;
 
 // set ID property of record to read
 $lend->id  = isset( $_GET['id'] ) ? $_GET['id'] : die();
 $response = $lend->readOne();
-
 if ( $response != null ) {
 
     // set response code - 200 OK
