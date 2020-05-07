@@ -139,8 +139,26 @@ function getBook() {
           <button id="update_book" type="button" class="btn btn-warning mb-3">Actualizar</button>\
           <br>\
           <hr>\
+          <p>\
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">\
+    Prestar Libro\
+  </button>\
+</p>\
+<div class="collapse" id="collapseExample">\
+  <div class="card card-body">\
+  <div class="form-group col-md-12">\
+  <label for="inputPassword4">Campo de busqueda</label>\
+  <input type="text" class="form-control" id="book_type">\
+  <button type="button" class="btn btn-dark mt-2">Buscar por nombre</button>\
+  <button type="button" class="btn btn-dark mt-2">Buscar por ID</button>\
+</div>\
+  </div>\
+</div>\
+<br\>\
             </div>\
           </form>';
+
+
                 $("#books_container").append(template);
                 $('#book_name').val(book.book_name);
                 $('#book_type').val(book.book_type);
