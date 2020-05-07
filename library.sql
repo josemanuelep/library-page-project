@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2020 at 03:26 AM
+-- Generation Time: May 08, 2020 at 12:25 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -35,6 +35,17 @@ CREATE TABLE `book` (
   `borrowed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`id`, `name`, `type`, `isbn`, `borrowed`) VALUES
+(1, 'El coronel no tiene quien le escriba', 'Historia', '131345811315', 0),
+(3, 'The Hunger Games (The Hunger Games, #1)', 'Historia', '1314545415', 0),
+(13, 'El retrado de Dorain Gray', 'Novela', '125458453', 0),
+(14, 'Matematicas Operativas', 'Ciencia y calculo', '5456445', 0),
+(18, 'Probando desde el formulario', 'Test', '55555', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -45,8 +56,25 @@ CREATE TABLE `lends` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_book` int(11) NOT NULL,
-  `init_date` date NOT NULL DEFAULT current_timestamp()
+  `init_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `end_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Dumping data for table `lends`
+--
+
+INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`) VALUES
+(7, 1, 18, '2020-04-02 00:00:00', '2020-04-15'),
+(9, 1, 18, '2020-04-02 00:00:00', '2020-04-15');
+
+--
+-- Triggers `lends`
+--
+DELIMITER $$
+CREATE TRIGGER `lend insert` AFTER INSERT ON `lends` FOR EACH ROW UPDATE book SET book.borrowed = 1 WHERE book.id = NEW.id_book
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -60,6 +88,13 @@ CREATE TABLE `users` (
   `last_name` varchar(45) COLLATE latin1_spanish_ci DEFAULT NULL,
   `doc` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `last_name`, `doc`) VALUES
+(1, 'Jose Manuel', 'Echeverri Palacio', 1022036395);
 
 --
 -- Indexes for dumped tables
@@ -95,19 +130,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `lends`
 --
 ALTER TABLE `lends`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
