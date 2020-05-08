@@ -8,7 +8,7 @@ header( 'Access-Control-Max-Age: 3600' );
 header( 'Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With' );
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/book.php';
+include_once '../objects/user.php';
 
 // instantiate database and product object
 $database = new Database();
@@ -18,18 +18,18 @@ $db = $database->getConnection();
 $data = json_decode( file_get_contents( 'php://input' ) );
 
 // initialize object
-$book = new Book( $db );
-$book->id = $data->id;
+$user = new User( $db );
+$user->id = $data->id;
 
 
 // update the product
-if ( $book->delete() ) {
+if ( $user->delete() ) {
 
     // set response code - 201 created
     http_response_code( 200 );
 
     // tell the user
-    echo json_encode( array( 'message' => 'Book was deleted.' ) );
+    echo json_encode( array( 'message' => 'user was deleted.' ) );
 }
 
 // if unable to create the product, tell the user
@@ -39,5 +39,5 @@ else {
     http_response_code( 503 );
 
     // tell the user
-    echo json_encode( array( 'message' => 'Unable to delete Book.' ) );
+    echo json_encode( array( 'message' => 'Unable to delete user.' ) );
 }

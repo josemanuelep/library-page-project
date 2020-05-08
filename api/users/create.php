@@ -19,8 +19,8 @@ $data = json_decode(file_get_contents("php://input"));
 // initialize object
 $user = new User($db);
 $user->name=$data->name;
-$user->type=$data->type;
-$user->isbn=$data->isbn;
+$user->last_name=$data->last_name;
+$user->last_name=$data->last_name;
   // create the product
   if($user->create()){
   

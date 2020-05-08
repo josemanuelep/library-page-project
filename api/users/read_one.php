@@ -7,19 +7,19 @@ header( 'Access-Control-Allow-Credentials: true' );
 header( 'Content-Type: application/json' );
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/book.php';
+include_once '../objects/user.php';
 
 
 // get database connection
-$database = new Database();
+$database = new User();
 $db = $database->getConnection();
 
-// prepare book object
-$book = new Book( $db );
+// prepare user object
+$user = new user( $db );
 
 // set ID property of record to read
-$book->id = isset( $_GET['id'] ) ? $_GET['id'] : die();
-$response = $book->readOne();
+$user->id = isset( $_GET['id'] ) ? $_GET['id'] : die();
+$response = $user->readOne();
 
 if ( $response != null ) {
 
@@ -33,6 +33,6 @@ if ( $response != null ) {
     http_response_code( 404 );
 
     // tell the user product does not exist
-    echo json_encode( array( 'message' => 'Book does not exist.' ) );
+    echo json_encode( array( 'message' => 'user does not exist.' ) );
 }
 ?>
