@@ -8,7 +8,7 @@ class User {
 
     // database connection and table name
     private $conn;
-    private $table_name = "users";
+    private $table_name = 'users';
 
     // object properties
     public $id;
@@ -28,7 +28,7 @@ class User {
 
     public function create() {
         $AffectedRows = $this->conn->query( 'INSERT INTO `users`(`id`, `name`, `last_name`, `doc`)  VALUES(:id,:name,:last_name,:doc)',
-        array( 'name'=>$this->name, 'last_name'=>$this->last_name, 'id'=>$this->null, 'doc'=>$this->doc));
+        array( 'name'=>$this->name, 'last_name'=>$this->last_name, 'id'=>null, 'doc'=>$this->doc));
         if ( $AffectedRows>0 ) {
             return true;
         } else {
@@ -37,7 +37,7 @@ class User {
     }
 
     public function update() {
-        $AffectedRows = $this->conn->query( 'UPDATE `users` SET name = :name , name = :last_name , doc =:doc WHERE id = :id',
+        $AffectedRows = $this->conn->query( 'UPDATE `users` SET name = :name , last_name = :last_name , doc =:doc WHERE id = :id',
         array( 'name'=>$this->name, 'last_name'=>$this->last_name, 'id'=>$this->id, 'doc'=>$this->doc) );
         if ( $AffectedRows>0 ) {
             return true;

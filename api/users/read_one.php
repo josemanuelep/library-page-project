@@ -11,11 +11,11 @@ include_once '../objects/user.php';
 
 
 // get database connection
-$database = new User();
+$database = new Database();
 $db = $database->getConnection();
 
 // prepare user object
-$user = new user( $db );
+$user = new User( $db );
 
 // set ID property of record to read
 $user->id = isset( $_GET['id'] ) ? $_GET['id'] : die();
