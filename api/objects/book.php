@@ -54,7 +54,7 @@ class Book {
     }
 
     public function readOne() {
-        return  $this->conn->query( 'SELECT book.name AS book_name,book.borrowed AS isBorrwed,book.type AS book_type, book.isbn , users.name AS name_user, users.last_name, users.doc, lends.init_date, lends.end_date FROM book LEFT JOIN lends ON book.id = lends.id_book LEFT JOIN users ON users.id = lends.id_user WHERE book.id = ?', array( $this->id ) );
+        return  $this->conn->query( 'SELECT book.name AS book_name,categories.category,book.borrowed AS isBorrwed,book.type AS book_type, book.isbn , users.name AS name_user, users.last_name, users.doc, lends.init_date, lends.end_date FROM book LEFT JOIN lends ON book.id = lends.id_book LEFT JOIN users ON users.id = lends.id_user  INNER JOIN categories ON book.type=categories.id  WHERE book.id = ?', array( $this->id ) );
     }
     public function delete() {
         return  $this->conn->query( 'DELETE FROM book WHERE id = ?', array( $this->id ) );
