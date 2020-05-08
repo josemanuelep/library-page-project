@@ -7,7 +7,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/book.php';
+include_once '../objects/user.php';
 
 // instantiate database and product object
 $database = new Database();
@@ -17,18 +17,18 @@ $db = $database->getConnection();
 $data = json_decode(file_get_contents("php://input"));
 
 // initialize object
-$book = new Book($db);
-$book->name=$data->name;
-$book->type=$data->type;
-$book->isbn=$data->isbn;
+$user = new User($db);
+$user->name=$data->name;
+$user->type=$data->type;
+$user->isbn=$data->isbn;
   // create the product
-  if($book->create()){
+  if($user->create()){
   
     // set response code - 201 created
     http_response_code(201);
 
     // tell the user
-    echo json_encode(array("message" => "Book was created."));
+    echo json_encode(array("message" => "user was created."));
 }
 
 // if unable to create the product, tell the user
@@ -38,5 +38,5 @@ else{
     http_response_code(503);
 
     // tell the user
-    echo json_encode(array("message" => "Unable to create Book."));
+    echo json_encode(array("message" => "Unable to create user."));
 }
