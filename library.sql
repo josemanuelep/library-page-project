@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2020 at 12:25 AM
+-- Generation Time: May 09, 2020 at 12:30 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `book` (
   `id` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
   `name` varchar(45) COLLATE latin1_spanish_ci NOT NULL,
-  `type` varchar(45) COLLATE latin1_spanish_ci NOT NULL,
   `isbn` varchar(45) COLLATE latin1_spanish_ci NOT NULL,
   `borrowed` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
@@ -39,12 +39,11 @@ CREATE TABLE `book` (
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`id`, `name`, `type`, `isbn`, `borrowed`) VALUES
-(1, 'El coronel no tiene quien le escriba', 'Historia', '131345811315', 0),
-(3, 'The Hunger Games (The Hunger Games, #1)', 'Historia', '1314545415', 0),
-(13, 'El retrado de Dorain Gray', 'Novela', '125458453', 0),
-(14, 'Matematicas Operativas', 'Ciencia y calculo', '5456445', 0),
-(18, 'Probando desde el formulario', 'Test', '55555', 1);
+INSERT INTO `book` (`id`, `type`, `name`, `isbn`, `borrowed`) VALUES
+(1, 4, 'Mátematicas Operativas', '1246656231', 1),
+(2, 3, 'La Célula y sus partes', '41564564153', 0),
+(3, 4, 'Cálculo I', '474846455656', 0),
+(4, 4, 'Mátematicas Basicas', '1246656238', 0);
 
 -- --------------------------------------------------------
 
@@ -65,8 +64,7 @@ CREATE TABLE `lends` (
 --
 
 INSERT INTO `lends` (`id`, `id_user`, `id_book`, `init_date`, `end_date`) VALUES
-(7, 1, 18, '2020-04-02 00:00:00', '2020-04-15'),
-(9, 1, 18, '2020-04-02 00:00:00', '2020-04-15');
+(1, 1, 1, '2020-05-08 16:28:24', '2020-05-30');
 
 --
 -- Triggers `lends`
@@ -94,7 +92,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `last_name`, `doc`) VALUES
-(1, 'Jose Manuel', 'Echeverri Palacio', 1022036395);
+(1, 'Jose Manuel', 'Echeverri Palacios', 1022036393),
+(2, 'Pepito', 'Perez Pulgarin', 4578446),
+(3, 'Pedro', 'Bermudez Piedrahita', 445646545);
 
 --
 -- Indexes for dumped tables
@@ -105,7 +105,8 @@ INSERT INTO `users` (`id`, `name`, `last_name`, `doc`) VALUES
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`);
+  ADD UNIQUE KEY `id_UNIQUE` (`id`),
+  ADD KEY `type` (`type`);
 
 --
 -- Indexes for table `lends`
@@ -130,23 +131,29 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `lends`
 --
 ALTER TABLE `lends`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `book`
+--
+ALTER TABLE `book`
+  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`type`) REFERENCES `categories` (`id`);
 
 --
 -- Constraints for table `lends`
