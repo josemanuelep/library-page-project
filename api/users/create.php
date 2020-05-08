@@ -20,7 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 $user = new User($db);
 $user->name=$data->name;
 $user->last_name=$data->last_name;
-$user->last_name=$data->last_name;
+$user->doc=$data->doc;
   // create the product
   if($user->create()){
   

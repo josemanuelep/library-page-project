@@ -14,7 +14,7 @@ class User {
     public $id;
     public $name;
     public $last_name;
-    public $last_name;
+    public $doc;
 
     // constructor with $db as database connection
 
