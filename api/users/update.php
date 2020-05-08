@@ -21,8 +21,8 @@ $data = json_decode( file_get_contents( 'php://input' ) );
 $user = new User( $db );
 $user->id = $data->id;
 $user->name = $data->name;
-$user->type = $data->type;
-$user->isbn = $data->isbn;
+$user->last_name = $data->last_name;
+$user->doc = $data->doc;
 
 // update the product
 if ( $user->update() ) {
