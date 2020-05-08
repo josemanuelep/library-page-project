@@ -24,7 +24,7 @@ class Book {
     }
 
     public function create() {
-        $AffectedRows = $this->conn->query( 'INSERT INTO `book` (`id`, `name`, `type`, `isbn`, `borrowed`)  VALUES(:id,:name,:type,:isbn,:borrowed)',
+        $AffectedRows = $this->conn->query( 'INSERT INTO `book` (`id`, `type`, `name`, `isbn`, `borrowed`)  VALUES(:id,:name,:type,:isbn,:borrowed)',
         array( 'name'=>$this->name, 'type'=>$this->type, 'isbn'=>$this->isbn, 'id'=>null,'borrowed'=>0 ) );
         if ( $AffectedRows>0 ) {
             return true;
