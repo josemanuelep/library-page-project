@@ -1,0 +1,11 @@
+Time : 23:20:36
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM book INNER JOIN categories ON categories.id = book.type' at line 1
+Raw SQL : SELECT book.id AS book_id,FROM book INNER JOIN categories ON categories.id = book.type
+
+Time : 23:20:08
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM book INNER JOIN categories ON categories.id = book.type' at line 1
+Raw SQL : SELECT book.id AS book_id,FROM book INNER JOIN categories ON categories.id = book.type
+
+Time : 23:19:44
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM book INNER JOIN categories ON categories.id = book.type WHERE 1' at line 1
+Raw SQL : SELECT book.id AS book_id,FROM book INNER JOIN categories ON categories.id = book.type WHERE 1

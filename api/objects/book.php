@@ -20,7 +20,7 @@ class Book {
     }
 
     public function readAll() {
-        return  $this->conn->query( 'SELECT book.id AS book_id, book.type, book.name, book.isbn, book.borrowed, categories.category FROM `book` INNER JOIN categories ON book.type = categories.id' );
+        return  $this->conn->query( 'SELECT book.id AS book_id, book.type, book.name, book.isbn, book.borrowed, categories.category AS cat FROM `book` INNER JOIN categories ON book.type = categories.id' );
     }
 
     public function create() {

@@ -17,6 +17,7 @@ var books = [];
 
 function getBooks() {
     $.get("api/books/read.php", function (data) {
+      console.info(data);
         books = data;
         fillBooks();
     });
@@ -34,7 +35,7 @@ function fillBooks() {
                              <p id="book_name">'+valueOfElement.name+'</a>\
                            </h4>\
                            <h6 class="card-subtitle mb-2 text-muted">Tipo:</h6>\
-                           <h5 id="book_type">'+valueOfElement.type+'</h5>\
+                           <h5 id="book_type">'+valueOfElement.cat+'</h5>\
                            <br>\
                            <h6 class="card-subtitle mb-2 text-muted">ISBN:</h6>\
                            <p id="book_isbn" class="card-text">1022</p>\
@@ -58,7 +59,7 @@ function fillBooks() {
                   <p id="book_name">'+valueOfElement.name+'</a>\
                 </h4>\
                 <h6 class="card-subtitle mb-2 text-muted">Tipo:</h6>\
-                <h5 id="book_type">'+valueOfElement.type+'</h5>\
+                <h5 id="book_type">'+valueOfElement.cat+'</h5>\
                 <br>\
                 <h6 class="card-subtitle mb-2 text-muted">ISBN:</h6>\
                 <p id="book_isbn" class="card-text">1022</p>\
