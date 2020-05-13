@@ -59,6 +59,9 @@ class Book {
     public function delete() {
         return  $this->conn->query( 'DELETE FROM book WHERE id = ?', array( $this->id ) );
     }
+    public function getCategories() {
+        return  $this->conn->query( 'SELECT * FROM `categories`');
+    }
 
 }
 ?>

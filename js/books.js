@@ -28,7 +28,7 @@ function fillBooks() {
         if (valueOfElement.borrowed==0) {
             let template = '<div class="col-lg-4 col-md-6 mb-4">\
                        <div class="card h-100">\
-                         <a href="book-form.html?id='+valueOfElement.id+'"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>\
+                         <a href="book-form.html?id='+valueOfElement.book_id+'"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>\
                          <div class="card-body">\
                            <h6 class="card-subtitle mb-2 text-muted">Nombre:</h6>\
                            <h4 class="card-title">\
@@ -52,7 +52,7 @@ function fillBooks() {
         } else {
             let template = '<div class="col-lg-4 col-md-6 mb-4">\
             <div class="card h-100">\
-              <a href="book-form.html?id='+valueOfElement.id+'"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>\
+              <a href="book-form.html?id='+valueOfElement.book_id+'"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>\
               <div class="card-body">\
                 <h6 class="card-subtitle mb-2 text-muted">Nombre:</h6>\
                 <h4 class="card-title">\

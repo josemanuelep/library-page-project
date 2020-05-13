@@ -2,6 +2,7 @@ import { getUrlParameter } from './util/url-params.js';
 
 $(document).ready(function () {
     console.log('Book detail js loaded!');
+    getCategories();
     getBook();
     $("#delete_book").click(function (e) {
         e.preventDefault();
@@ -48,7 +49,9 @@ function getBook() {
               </div>\
               <div class="form-group col-md-6">\
                 <label for="inputPassword4">Tipo libro</label>\
-                <input type="text" class="form-control" id="book_type">\
+                <select id="book_type" class="form-control">\
+                <option >Seleccione...</option>\
+              </select>\
               </div>\
             </div>\
             <div class="form-row">\
@@ -98,7 +101,6 @@ function getBook() {
           </form>';
                 $("#books_container").append(template);
                 $('#book_name').val(book.book_name);
-                $('#book_type').val(book.book_type);
                 $('#book_isbn').val(book.isbn);
                 $('#inputState option[value='+isBorrwed+']').attr("selected", true);
                 $("#user_name").val(book.name_user);
@@ -157,17 +159,28 @@ function getBook() {
 <br\>\
             </div>\
           </form>';
-
-
                 $("#books_container").append(template);
                 $('#book_name').val(book.book_name);
-                $('#book_type').val(book.book_type);
                 $('#book_isbn').val(book.isbn);
                 $('#inputState option[value='+isBorrwed+']').attr("selected", false);
             }
 
         }
     });
+}
+function getCategories(){
+  $.ajax({
+    type: "GET",
+    url: "api/books/categories.php",
+    data: "",
+    dataType: "JSON",
+    success: function (response) {
+      $.each(response, function (indexInArray, valueOfElement) { 
+        $('#book_type').append(new Option(valueOfElement.category, valueOfElement.id)); 
+         
+      });
+    }
+  });
 }
 
 function deleteBook() {
