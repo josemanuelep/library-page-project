@@ -9,7 +9,7 @@ $(document).ready(function () {
         window.location.href = "http://127.0.0.1/library-page-project/#";
       }
     });
-   
+
   });
   $("#update_book").click(function (e) {
     e.preventDefault();
@@ -61,7 +61,7 @@ function getBook(types) {
               <div class="form-group col-md-6">\
                 <label for="inputPassword4">Tipo libro</label>\
                 <select id="book_type" class="form-control">\
-                '+types+'\
+                '+ types + '\
               </select>\
               </div>\
             </div>\
@@ -114,6 +114,7 @@ function getBook(types) {
         $('#book_name').val(book.book_name);
         $('#book_isbn').val(book.isbn);
         $('#inputState option[value=' + isBorrwed + ']').attr("selected", true);
+        $('#book_type option[value=' + book.book_type + ']').attr("selected", true);
         $("#user_name").val(book.name_user);
         $("#user_last").val(book.last_name);
         $("#user_doc").val(book.doc);
@@ -121,59 +122,62 @@ function getBook(types) {
         $("#book_end_date").val(book.end_date);
       } else {
         console.log("Painting without lend");
-        let template = ' <form>\
-            <hr>\
-          <h4>Datos del libro</h4>\
-            <div class="form-row">\
-              <div class="form-group col-md-12">\
-                <label for="inputEmail4">Nombre libro</label>\
-                <input type="text" class="form-control" id="book_name">\
-              </div>\
-              <div class="form-group col-md-6">\
-                <label for="inputPassword4">Tipo libro</label>\
-                <input type="text" class="form-control" id="book_type">\
-              </div>\
-            </div>\
-            <div class="form-row">\
-            <div class="form-group col-md-6">\
-              <label for="inputAddress">ISBN</label>\
-              <input type="text" class="form-control" id="book_isbn">\
-            </div>\
-            <div class="form-group col-md-6">\
-              <label for="inputState">Prestado?</label>\
-              <select id="inputState" class="form-control">\
-                <option >Seleccione...</option>\
-                <option value="true" >Si</option>\
-                <option value="false">No</option>\
-              </select>\
-            </div>\
+        let template = '<form>\
+        <hr>\
+      <h4>Datos del libro</h4>\
+        <div class="form-row">\
+          <div class="form-group col-md-12">\
+            <label for="inputEmail4">Nombre libro</label>\
+            <input  type="text" class="form-control" id="book_name">\
           </div>\
+          <div class="form-group col-md-6">\
+            <label for="inputPassword4">Tipo libro</label>\
+            <select id="book_type" class="form-control">\
+            '+ types + '\
+          </select>\
+          </div>\
+        </div>\
+        <div class="form-row">\
+        <div class="form-group col-md-6">\
+          <label for="inputAddress">ISBN</label>\
+          <input type="text" class="form-control" id="book_isbn">\
+        </div>\
+        <div class="form-group col-md-6">\
+          <label for="inputState">Prestado?</label>\
+          <select id="inputState" class="form-control">\
+            <option >Seleccione...</option>\
+            <option value="true" >Si</option>\
+            <option value="false">No</option>\
+          </select>\
+        </div>\
+      </div>\
           <button id="delete_book" type="button" class="btn btn-danger mb-3">Eliminar</button>\
           <button id="update_book" type="button" class="btn btn-warning mb-3">Actualizar</button>\
           <br>\
           <hr>\
           <p>\
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">\
-    Prestar Libro\
-  </button>\
-</p>\
-<div class="collapse" id="collapseExample">\
-  <div class="card card-body">\
-  <div class="form-group col-md-12">\
-  <label for="inputPassword4">Campo de busqueda</label>\
-  <input type="text" class="form-control" id="book_type">\
-  <button type="button" class="btn btn-dark mt-2">Buscar por nombre</button>\
-  <button type="button" class="btn btn-dark mt-2">Buscar por ID</button>\
-</div>\
-  </div>\
-</div>\
-<br\>\
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">\
+        Prestar Libro\
+        </button>\
+        </p>\
+            <div class="collapse" id="collapseExample">\
+              <div class="card card-body">\
+              <div class="form-group col-md-12">\
+              <label for="inputPassword4">Campo de busqueda</label>\
+              <input type="text" class="form-control" id="book_type">\
+              <button type="button" class="btn btn-dark mt-2">Buscar por nombre</button>\
+              <button type="button" class="btn btn-dark mt-2">Buscar por ID</button>\
+            </div>\
+              </div>\
+            </div>\
+            <br\>\
             </div>\
           </form>';
         $("#books_container").append(template);
         $('#book_name').val(book.book_name);
         $('#book_isbn').val(book.isbn);
-        $('#inputState option[value=' + isBorrwed + ']').attr("selected", false);
+        $('#inputState option[value=' + isBorrwed + ']').attr("selected", true);
+        $('#book_type option[value=' + book.book_type + ']').attr("selected", true);
       }
 
     }
@@ -190,7 +194,7 @@ function getCategories() {
       categories = response;
       options = "<option >Seleccione...</option>";
       categories.forEach(element => {
-        options += '<option value='+element.id+' >' + element.category + '</option>';
+        options += '<option value=' + element.id + ' >' + element.category + '</option>';
       });
       getBook(options);
     }
