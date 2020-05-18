@@ -1,7 +1,6 @@
 $(document).ready(function () {
   console.log('Book detail js loaded!');
   getCategories();
-  getBook();
   $("#delete_book").click(function (e) {
     e.preventDefault();
     bootbox.confirm("¿Desea eliminar el libro?", function (result) {
@@ -10,7 +9,7 @@ $(document).ready(function () {
         window.location.href = "http://127.0.0.1/library-page-project/#";
       }
     });
-
+   
   });
   $("#update_book").click(function (e) {
     e.preventDefault();
@@ -25,6 +24,8 @@ $(document).ready(function () {
 });
 
 var book = [];
+var options
+var categories = [];
 
 function getUrlParameter(sParam) {
   var sPageURL = window.location.search.substring(1),
@@ -40,7 +41,7 @@ function getUrlParameter(sParam) {
     }
   }
 }
-function getBook() {
+function getBook(types) {
   $.ajax({
     type: "GET",
     url: "api/books/read_one.php?id=" + getUrlParameter('id'),
@@ -48,10 +49,7 @@ function getBook() {
     dataType: "JSON",
     success: function (book) {
       let isBorrwed = book.isBorrwed == 0 ? false : true;
-      console.info(book);
-      //document.getElementById("book_type").selectedIndex = book.book_type;
       if (isBorrwed) {
-        console.log("Painting with lend");
         let template = ' <form>\
             <hr>\
           <h4>Datos del libro</h4>\
@@ -63,7 +61,7 @@ function getBook() {
               <div class="form-group col-md-6">\
                 <label for="inputPassword4">Tipo libro</label>\
                 <select id="book_type" class="form-control">\
-                <option >Seleccione...</option>\
+                '+types+'\
               </select>\
               </div>\
             </div>\
@@ -182,7 +180,7 @@ function getBook() {
   });
 }
 function getCategories() {
-  let categories = [];
+
   $.ajax({
     type: "GET",
     url: "api/books/categories.php",
@@ -190,31 +188,14 @@ function getCategories() {
     dataType: "JSON",
     success: function (response) {
       categories = response;
-      console.log(categories);
-      var o = new Option("option text", "value");
-      /// jquerify the DOM object 'o' so we can use the html method
-      $(o).html("option text");
-      $("#selectList").append(o);
+      options = "<option >Seleccione...</option>";
+      categories.forEach(element => {
+        options += '<option value='+element.id+' >' + element.category + '</option>';
+      });
+      getBook(options);
     }
   });
-  var i;
-  for (i = 0; i < categories.length; i++) {
-    // get reference to select element
-    console.log(categories.length);
-    var sel = document.getElementById("book_type");
 
-    // create new option element
-    var opt = document.createElement("option");
-
-    // create text node to add to option element (opt)
-    opt.appendChild(document.createTextNode(iterator.category));
-
-    // set value property of opt
-    opt.value = iterator.id;
-
-    // add opt to end of select box (sel)
-    sel.appendChild(opt);
-  }
 }
 function deleteBook() {
   var id = {
